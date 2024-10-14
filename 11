@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+
+class airport {
+public:
+	//airport() : name("first"), cost(0), places(0), tickets(0) {};
+	airport(string n, int c, int p, int t) {
+		name = n;
+		cost = c;
+		places = p;
+		tickets = t;
+	};
+	int allcost() {
+		return tickets * cost;
+	}
+	void setcost(int cc){
+		if (cc < 0){
+			cost = 0;
+		}
+		else{
+			cost = cc;
+		}
+	}
+	void setplaces(int cc){
+		if (cc < 0){
+			places = 0;
+		}
+		else{
+			places= cc;
+		}
+	}
+	void settickets(int cc){
+		if (cc < 0){
+			tickets = 0;
+		}
+		else{
+			tickets = cc;
+		}
+	}
+
+	void setname(string n){
+		name = n;
+	}
+
+	string showname(){
+		return name;
+	}
+
+	
+
+private:
+	string name;
+	int cost;
+	int places;
+	int tickets;
+};
+
+
+
+
+int main() {
+	setlocale(LC_ALL, "rus");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	airport Pulkovo("Pulkovo", 5000, 300, 278);
+	cout <<"В аэропорту "<< Pulkovo.showname()<<" стоимость проданных билетов составляет: "<<Pulkovo.allcost();
+	return 0;
+}
